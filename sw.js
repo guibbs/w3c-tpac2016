@@ -2,7 +2,7 @@
 "use strict";
 self.importScripts("./assets/js/async.js");
 
-const SITE_CACHE = "skeleton-v1";
+const SITE_CACHE = "skeleton-v0";
 
 self.addEventListener("install", (ev) => {
   const resources = [
