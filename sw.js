@@ -62,7 +62,7 @@ self.addEventListener("activate", () => {
   async.task(function*() {
     const keys = yield caches.keys();
     yield keys
-      .filter(key => key !== SITE_CACHE)
+      .filter(key => key.startWith("skeleton-") && key !== SITE_CACHE)
       .map(key => caches.delete(key));
   });
 });
