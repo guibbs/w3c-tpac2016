@@ -21,6 +21,7 @@ if (navigator.serviceWorker) {
 
     navigator.serviceWorker.addEventListener("controllerchange", function() {
       window.location.reload();
+      delete localStorage.updateDismissed;
     });
 
     function trackInstallation(sw) {
@@ -35,12 +36,16 @@ if (navigator.serviceWorker) {
 
     function updateReady(sw) {
       console.info("Update ready");
+      if(localStorage.updateDismissed && localStorage.updateDismissed === "yes"){
+        return;
+      }
       const toast = document.querySelector("#update-toast");
       const refresh = document.querySelector("#refresh");
       const dismiss = document.querySelector("#dismiss");
       toast.classList.add("show");
       dismiss.onclick = function() {
         toast.classList.remove("show");
+        localStorage.updateDismissed = "yes";
       };
       refresh.onclick = function() {
         toast.classList.remove("show");
