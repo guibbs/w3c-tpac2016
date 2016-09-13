@@ -479,3 +479,39 @@ main {
 #overview {
   background-color: white;
 }
+
+#update-toast {
+  display: none;
+  padding: .5cm .5cm .5cm .5cm;
+  background: black;
+  border: 1px solid blue;
+  border-bottom: none;
+  position: fixed;
+  bottom: 0px;
+  width: 50%;
+  left: 20%;
+  margin: 0 auto;
+  animation: fadein 2s;
+}
+
+#update-toast.show{
+  display: inline-block;
+}
+
+#update-toast button {
+  border: none;
+  background: inherit;
+  color: pink;
+  font-size: inherit;
+  padding-right: .2cm;
+  text-decoration: underline;
+}
+
+#update-toast button:focus {
+  outline:0;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
